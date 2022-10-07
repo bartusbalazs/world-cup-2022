@@ -1,0 +1,7 @@
+<div class="teams" *ngFor="let team of teams, let i = index">
+  <button type="button">
+    <span class="badge">{{i+1}}.</span>
+    <span class="name">{{team.name}}</span>
+    <img *ngIf="team.flagPath" class="flag" [src]="team.flagPath" [alt]="team.name">
+  </button>
+</div>

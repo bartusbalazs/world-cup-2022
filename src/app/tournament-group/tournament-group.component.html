@@ -1,0 +1,10 @@
+<div *ngFor="let group of groups, let i = index">
+  <h2>{{group.name}}</h2>
+  <div class="teams" *ngFor="let team of teams, let i = index">
+    <button *ngIf="group.teams.indexOf(team.id) > -1" >
+      <span class="badge">{{i+1}}.</span>
+      <span class="name">{{team.name}}</span>
+      <img class="flag" [src]="team.flagPath" [alt]="team.name">
+    </button>
+  </div>
+</div>
