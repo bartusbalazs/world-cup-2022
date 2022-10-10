@@ -1,6 +1,13 @@
-<div class="teams" *ngFor="let team of teams, let i = index">
-  <button type="button">
-    <span class="badge">{{i+1}}.</span>
+<app-team-detail [team]="selectedTeam" (clearDetails)="clearSelectedTeam()"></app-team-detail>
+
+<div #teamDiv class="teams" *ngFor="let team of teams, let i = index">
+  <button *ngIf="teamsOfGroup.indexOf(team.id) > -1"
+          appTeamButton type="button" (click)="onSelect(team)" [class.selected]="selectedTeam === team">
+<!-------------          NgClass and NgStyle example       ------------->
+<!--          [ngClass]="team === selectedTeam ? 'selected-team' : ''"-->
+<!--          [ngStyle]="team === selectedTeam ? {color:'white'} : {color:'black'}" -->
+
+  <span class="badge">{{i+1}}.</span>
     <span class="name">{{team.name}}</span>
     <img *ngIf="team.flagPath" class="flag" [src]="team.flagPath" [alt]="team.name">
   </button>

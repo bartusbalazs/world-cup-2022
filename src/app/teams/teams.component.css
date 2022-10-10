@@ -37,17 +37,17 @@
 }
 
 .teams button.selected {
-  background-color: black;
+  background-color: black!important;
   color: white;
 }
 
 .teams button.selected:hover {
-  background-color: #505050;
+  background-color: #505050!important;
   color: white;
 }
 
 .teams button.selected:active {
-  background-color: black;
+  background-color: black!important;
   color: white;
 }
 
@@ -73,3 +73,9 @@
   width: 50px;
   height: 30px;
 }
+
+.selected-team {
+  background-color: black!important;
+}
+
+
