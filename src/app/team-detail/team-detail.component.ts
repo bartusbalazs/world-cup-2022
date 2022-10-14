@@ -9,24 +9,34 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {Team} from "../teams/model/team.model";
+import {CountryService} from "./service/country.service";
+import {MessageService} from "../services/message.service";
 
 @Component({
   selector: 'app-team-detail',
   templateUrl: './team-detail.component.html',
-  styleUrls: ['./team-detail.component.css']
+  styleUrls: ['./team-detail.component.css'],
+  providers: [CountryService]
 })
 export class TeamDetailComponent implements OnInit {
   @Input() team : Team | undefined;
   @Output() clearDetails = new EventEmitter();
 
-  constructor() { }
+  constructor(public countryService:CountryService, private messageService:MessageService) { }
 
   ngOnChanges(changes:SimpleChanges){
     if(changes && changes["team"] && changes["team"].currentValue){
-      console.log("Selected team is: " + changes["team"].currentValue["name"]);
+      this.messageService.add("Selected team is: " + changes["team"].currentValue["name"]);
     }
     if(changes && changes["team"] && changes["team"].previousValue){
-      console.log("Selected team was: " + changes["team"].previousValue["name"]);
+      this.messageService.add("Selected team was: " + changes["team"].previousValue["name"]);
+    }
+
+    this.countryService.countryData = undefined;
+    if(this.team) {
+      this.countryService.initCountryData(this.team.name)
+        .subscribe(countryData =>
+          this.countryService.countryData = countryData[0]);
     }
   }
 

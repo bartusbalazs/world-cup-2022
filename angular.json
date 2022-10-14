@@ -67,7 +67,8 @@
               "browserTarget": "world-cup-2022:build:production"
             },
             "development": {
-              "browserTarget": "world-cup-2022:build:development"
+              "browserTarget": "world-cup-2022:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

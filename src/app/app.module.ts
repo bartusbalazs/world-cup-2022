@@ -7,6 +7,9 @@ import {FormsModule} from "@angular/forms";
 import { TournamentGroupComponent } from './tournament-group/tournament-group.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { TeamButtonDirective } from './directives/team-button.directive';
+import {TeamService} from "./services/team.service";
+import {HttpClientModule} from "@angular/common/http";
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +17,15 @@ import { TeamButtonDirective } from './directives/team-button.directive';
     TeamsComponent,
     TournamentGroupComponent,
     TeamDetailComponent,
-    TeamButtonDirective
+    TeamButtonDirective,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TeamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
