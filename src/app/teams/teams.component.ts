@@ -12,7 +12,6 @@ import {TeamService} from "../services/team.service";
 })
 export class TeamsComponent implements OnInit {
   teams : Team[] = [];
-  selectedTeam : Team | undefined;
 
   @Input() teamsOfGroup!:number[];
 
@@ -32,17 +31,6 @@ export class TeamsComponent implements OnInit {
   ngAfterViewInit(): void {
     //ViewChildren example
     this.teamDivs.get(2)?.nativeElement.setAttribute('style', 'border-left: solid black 5px');
-  }
-
-  onSelect(team : Team){
-    this.selectedTeam = team;
-  }
-
-  clearSelectedTeam(){
-    //ViewChild example
-    // this.teamDetailComponent.team = undefined;
-
-    this.selectedTeam = undefined;
   }
 
 }

@@ -10,6 +10,9 @@ import { TeamButtonDirective } from './directives/team-button.directive';
 import {TeamService} from "./services/team.service";
 import {HttpClientModule} from "@angular/common/http";
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +21,15 @@ import { MessagesComponent } from './messages/messages.component';
     TournamentGroupComponent,
     TeamDetailComponent,
     TeamButtonDirective,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [TeamService],
   bootstrap: [AppComponent]

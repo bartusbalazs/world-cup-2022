@@ -1,8 +1,6 @@
-<app-team-detail [team]="selectedTeam" (clearDetails)="clearSelectedTeam()"></app-team-detail>
-
 <div #teamDiv class="teams" *ngFor="let team of teams, let i = index">
-  <button *ngIf="teamsOfGroup.indexOf(team.id) > -1"
-          appTeamButton type="button" (click)="onSelect(team)" [class.selected]="selectedTeam === team">
+  <button routerLink="/detail/{{team.id}}" appTeamButton
+          *ngIf="teamsOfGroup.indexOf(team.id) > -1" type="button">
 <!-------------          NgClass and NgStyle example       ------------->
 <!--          [ngClass]="team === selectedTeam ? 'selected-team' : ''"-->
 <!--          [ngStyle]="team === selectedTeam ? {color:'white'} : {color:'black'}" -->

@@ -66,3 +66,14 @@ a:disabled {
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+nav {
+  border-bottom: 1px black solid;
+  margin-bottom: 10px;
+}
+.nav-menu-link {
+  display: inline-block;
+  text-align: center;
+  width: 150px;
+}
+

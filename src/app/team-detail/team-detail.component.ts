@@ -11,6 +11,9 @@ import {
 import {Team} from "../teams/model/team.model";
 import {CountryService} from "./service/country.service";
 import {MessageService} from "../services/message.service";
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
+import { TeamService } from '../services/team.service';
 
 @Component({
   selector: 'app-team-detail',
@@ -19,19 +22,32 @@ import {MessageService} from "../services/message.service";
   providers: [CountryService]
 })
 export class TeamDetailComponent implements OnInit {
-  @Input() team : Team | undefined;
-  @Output() clearDetails = new EventEmitter();
+  team : Team | undefined;
 
-  constructor(public countryService:CountryService, private messageService:MessageService) { }
+  constructor(public countryService:CountryService, private messageService:MessageService,
+              private route: ActivatedRoute,
+              private teamService: TeamService,
+              private location: Location ) { }
 
-  ngOnChanges(changes:SimpleChanges){
-    if(changes && changes["team"] && changes["team"].currentValue){
-      this.messageService.add("Selected team is: " + changes["team"].currentValue["name"]);
-    }
-    if(changes && changes["team"] && changes["team"].previousValue){
-      this.messageService.add("Selected team was: " + changes["team"].previousValue["name"]);
-    }
+  ngOnInit(){
+    this.initTeam();
+  }
+  initTeam(){
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.teamService.getTeamById(id.toString())
+      .subscribe(team => {
+        this.team = team;
+        this.initCountryDetails();
+      });
+  }
 
+  goBack(){
+    this.location.back();
+  }
+
+
+
+  initCountryDetails(){
     this.countryService.countryData = undefined;
     if(this.team) {
       this.countryService.initCountryData(this.team.name)
@@ -41,9 +57,6 @@ export class TeamDetailComponent implements OnInit {
   }
 
 
-  ngOnInit(){
-    console.log("OnInit happened");
-  }
 
   ngAfterContentInit(){
     console.log("AfterContentInit happened");

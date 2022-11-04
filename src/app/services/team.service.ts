@@ -17,4 +17,8 @@ export class TeamService {
     return teams;
   }
 
+  getTeamById(id: string): Observable<Team> {
+    return this.http.get<Team>(this.teamsUrl + "/" + id);
+  }
+
 }

@@ -1,4 +1,8 @@
 <h1>{{title}}</h1>
-<!--<app-teams></app-teams>-->
-<app-tournament-group></app-tournament-group>
-<div style='position: fixed;right: 0;top: 0'><app-messages></app-messages></div>
+<nav>
+  <a class="nav-menu-link" routerLink="/groups">Groups</a>
+  <a class="nav-menu-link" routerLink="/dashboard">Dashboard</a>
+</nav>
+
+
+<router-outlet></router-outlet>
