@@ -17,6 +17,12 @@ export class TeamService {
     return teams;
   }
 
+  getTopTeams(): Observable<Team[]> {
+    const teams = this.http.get<Team[]>(this.teamsUrl + "?limit=10&sort=desc");
+    this.messageService.add("TeamService: fetched teams")
+    return teams;
+  }
+
   getTeamById(id: string): Observable<Team> {
     return this.http.get<Team>(this.teamsUrl + "/" + id);
   }

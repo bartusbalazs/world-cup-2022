@@ -45,8 +45,6 @@ export class TeamDetailComponent implements OnInit {
     this.location.back();
   }
 
-
-
   initCountryDetails(){
     this.countryService.countryData = undefined;
     if(this.team) {
@@ -55,8 +53,6 @@ export class TeamDetailComponent implements OnInit {
           this.countryService.countryData = countryData[0]);
     }
   }
-
-
 
   ngAfterContentInit(){
     console.log("AfterContentInit happened");

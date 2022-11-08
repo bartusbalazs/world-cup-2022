@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   }
 
   initTeams(){
-    this.teamService.getTeams().subscribe((teams) => this.teams =
+    this.teamService.getTopTeams().subscribe((teams) => this.teams =
       teams);
   }
 
