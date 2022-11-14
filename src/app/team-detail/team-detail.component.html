@@ -5,7 +5,7 @@
     <input id = "team-ranking" [(ngModel)]= "team.rankingPoints" 	placeholder= "ranking point">
   </div>
   <button type="button" (click)="goBack()">Back</button>
-  <a target="_blank" href = "{{countryService.countryData.maps.googleMaps}}">Google Maps</a>
+  <a target="_blank" *ngIf="countryService.countryData" href = "{{countryService.countryData.maps.googleMaps}}">Google Maps</a>
 <!--  <div *ngIf="countryService.countryData != null">-->
 <!--    <pre>{{countryService.countryData | json}}</pre>-->
 <!--  </div>-->

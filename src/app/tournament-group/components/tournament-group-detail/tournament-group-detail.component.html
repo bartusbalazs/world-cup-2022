@@ -1,6 +1,6 @@
 <div *ngIf="group">
   <h2>{{group.name}}</h2>
-  <app-teams *ngIf="group.teams" [teamsOfGroup]="group.teams"></app-teams>
+  <app-teams *ngIf="group.teams" [teams]="group.teams"></app-teams>
   <button type="button" (click)="goBack()">Back</button>
 </div>
 

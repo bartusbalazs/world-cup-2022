@@ -11,26 +11,19 @@ import {TeamService} from "../services/team.service";
   styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
-  teams : Team[] = [];
-
-  @Input() teamsOfGroup!:number[];
+  @Input() teams : Team[] = [];
 
   @ViewChild(TeamDetailComponent) teamDetailComponent!:TeamDetailComponent;
   @ViewChildren("teamDiv") teamDivs!:QueryList<ElementRef>;
 
-  constructor(private teamService:TeamService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.initTeams();
-  }
-
-  initTeams(){
-    this.teamService.getTeams().subscribe((dsadsa) => this.teams = dsadsa);
   }
 
   ngAfterViewInit(): void {
     //ViewChildren example
-    this.teamDivs.get(2)?.nativeElement.setAttribute('style', 'border-left: solid black 5px');
+    // this.teamDivs.get(2)?.nativeElement.setAttribute('style', 'border-left: solid black 5px');
   }
 
 }
