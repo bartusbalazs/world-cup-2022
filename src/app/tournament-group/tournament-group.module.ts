@@ -7,6 +7,7 @@ import {TeamsModule} from "../teams/teams.module";
 import {TournamentGroupService} from "../services/tournament-group.service";
 import {TournamentGroupWrapperComponent} from "./tournament-group-wrapper.component";
 import {TournamentGroupDetailComponent} from "./components/tournament-group-detail/tournament-group-detail.component";
+import {MatchService} from "../services/match.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {TournamentGroupDetailComponent} from "./components/tournament-group-deta
     TeamsModule
   ],
   providers: [
-    TournamentGroupService
+    TournamentGroupService,
+    MatchService
   ]
 })
 export class TournamentGroupModule { }
