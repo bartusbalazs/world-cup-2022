@@ -3,6 +3,7 @@ import {TournamentGroupComponent} from "./components/tournament-groups/tournamen
 import {NgModule} from "@angular/core";
 import {TournamentGroupDetailComponent} from "./components/tournament-group-detail/tournament-group-detail.component";
 import {TournamentGroupWrapperComponent} from "./tournament-group-wrapper.component";
+import {MatchDetailComponent} from "./components/match-detail/match-detail.component";
 
 const routes: Routes = [{
   path: '',
@@ -15,6 +16,10 @@ const routes: Routes = [{
       {
         path: ':id',
         component: TournamentGroupDetailComponent
+      },
+      {
+        path: 'match/:id',
+        component: MatchDetailComponent
       }
     ]
 }];

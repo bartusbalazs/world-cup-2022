@@ -1,0 +1,18 @@
+<div style="width: 100%;" *ngIf="match">
+  <button style="float: right;" type="button" (click)="goBack()">Back</button>
+  <div class="icon-div">
+    <img decoding="async" loading="lazy" height="auto" width="100%" src="https://cloudinary.fifa.com/api/v3/picture/fifacompetitions-sq-4/17?tx=c_fill,g_auto,q_auto" alt="" title="" class="image_img__3ckHZ">
+  </div>
+  <div class="match-header-div">
+    <div class="match-element-div">
+      <div class="team-block team-name-end">{{match.homeTeam.name | uppercase}}</div>
+      <div class="team-block"><img class="flag" [src]="match.homeTeam.flagPath"></div>
+    </div>
+    <div class="match-det-date">{{match.startDate}}</div>
+    <div class="match-element-div">
+      <div class="team-block"><img class="flag" [src]="match.awayTeam.flagPath"></div>
+      <div class="team-block team-name-start">{{match.awayTeam.name | uppercase}}</div>
+    </div>
+  </div>
+    <div class="stadium-div">{{match.stadium}}</div>
+</div>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {Match} from "../matches/model/match.model";
-import {MATCHES} from "../matches/model/match-list";
+import {Match} from "../tournament-group/model/match.model";
+import {MATCHES} from "../tournament-group/model/match-list";
 
 @Injectable()
 export class MatchService {
