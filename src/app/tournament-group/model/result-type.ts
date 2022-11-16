@@ -1,5 +1,5 @@
 export enum ResultType{
-  HOME_WIN,
-  DRAW,
-  AWAY_WIN
+  HOME_WIN="Home win",
+  DRAW="Draw",
+  AWAY_WIN="Away win"
 }
