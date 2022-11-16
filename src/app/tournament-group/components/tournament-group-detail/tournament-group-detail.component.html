@@ -5,7 +5,7 @@
 
   <h3>Matches</h3>
   <div *ngFor="let match of matches" class="match-button" routerLink="/groups/match/{{match.id}}">
-    <div class="match-date">{{match.startDate}}</div>
+    <div class="match-date">{{match.startTime}}</div>
     <div class="match-teams">
       <img class="flag" [src]="match.homeTeam.flagPath">
       <div style="width: 60%; display: inline-block;">{{match.homeTeam.name}}-{{match.awayTeam.name}}</div>
