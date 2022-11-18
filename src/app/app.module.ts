@@ -10,7 +10,7 @@ import { TeamButtonDirective } from './directives/team-button.directive';
 import {TeamService} from "./services/team.service";
 import {HttpClientModule} from "@angular/common/http";
 import { MessagesComponent } from './messages/messages.component';
-import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
