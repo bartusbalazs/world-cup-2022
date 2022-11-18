@@ -11,25 +11,25 @@ export class TournamentGroupService {
 
   constructor(private http: HttpClient, private messageService:MessageService) { }
 
-  // //get groups with API
+  //get groups with API
+  getGroups(): Observable<TournamentGroup[]> {
+    return this.http.get<TournamentGroup[]>(this.groupsUrl);
+  }
+
+  //get group by id with API
+  getGroupById(id: string): Observable<TournamentGroup> {
+    return this.http.get<TournamentGroup>(this.groupsUrl + "/" + id);
+  }
+
+  // //get mock groups
   // getGroups(): Observable<TournamentGroup[]> {
-  //   return this.http.get<TournamentGroup[]>(this.groupsUrl);
+  //   return of(GROUPS);
   // }
   //
-  // //get group by id with API
+  // //get mock group by id
   // getGroupById(id: string): Observable<TournamentGroup> {
-  //   return this.http.get<TournamentGroup>(this.groupsUrl + "/" + id);
+  //   return of(GROUPS.filter((g) => g.id.toString() ==
+  //     id)[0]);
   // }
-
-  //get mock groups
-  getGroups(): Observable<TournamentGroup[]> {
-    return of(GROUPS);
-  }
-
-  //get mock group by id
-  getGroupById(id: string): Observable<TournamentGroup> {
-    return of(GROUPS.filter((g) => g.id.toString() ==
-      id)[0]);
-  }
 
 }
