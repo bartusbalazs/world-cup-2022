@@ -1,0 +1,41 @@
+<div class="container">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="user-name">Username: </label>
+      <input class="form-control" id="user-name" type="text" required
+             formControlName="userName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input class="form-control" id="email" type="text"
+             formControlName="email">
+    </div>
+    <div formGroupName="fullName">
+      <h2>Name</h2>
+      <div class="form-group">
+        <label for="first-name">First name: </label>
+        <input class="form-control" id="first-name" type="text"
+               formControlName="firstName">
+      </div>
+      <div class="form-group">
+        <label for="last-name">Last name: </label>
+        <input class="form-control" id="last-name" type="text"
+               formControlName="lastName">
+      </div>
+    </div>
+    <div formArrayName="dynamicControls">
+      <h2>Dynamic control elements</h2>
+      <button type="button" (click)="addDynamicControl()">+
+        Add another control</button>
+      <div *ngFor="let dynControl of
+          dynamicControls.controls; let i=index">
+        <label for="control-{{ i }}">Dynamic name:</label>
+        <input id="control-{{ i }}" type="text"
+               [formControlName]="i">
+      </div>
+    </div>
+
+    <button type="button" (click)="clear()">Clear</button>
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+  </form>
+</div>

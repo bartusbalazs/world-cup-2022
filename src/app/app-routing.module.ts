@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {ReactiveFormDemoComponent} from "./reactive-form-demo/reactive-form-demo.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     path: 'detail/:id',
     loadChildren: () => import('./team-detail/team-detail.module').then(m => m.TeamDetailModule)
   },
+  { path: 'reactive-form', component: ReactiveFormDemoComponent},
   { path: '', redirectTo: '/dashboard', pathMatch: "full"},
   { path: '**', component: PageNotFoundComponent}
 
