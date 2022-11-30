@@ -13,17 +13,17 @@ import {BetService} from "../../../services/bet.service";
   styleUrls: ['./bets.component.css']
 })
 export class BetsComponent implements OnInit {
+
   @Input("match") match: Match | undefined;
   bet:Bet|undefined;
   public resultTypes = Object.values(ResultType);
-
 
   constructor(public betService:BetService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(betForm: NgForm) {
+  onSubmit() {
     if(this.bet){
       this.betService.submitBet(this.bet);
       this.bet = undefined;
@@ -43,10 +43,10 @@ export class BetsComponent implements OnInit {
     this.betService.bets.splice(this.betService.bets.indexOf(bet),
       1);
   }
+
   getBets() {
     return this.betService.bets.filter((b) => b.match?.id ==
       this.match?.id);
   }
-
 
 }

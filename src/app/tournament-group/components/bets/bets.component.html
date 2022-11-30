@@ -8,10 +8,10 @@
     <th></th>
   </tr>
   <tr *ngFor="let bet of getBets()">
-    <td>{{bet.user.userName}}</td>
-    <td>{{bet.result.resultType}}</td>
-    <td>{{bet.result.homeTeamScore}}</td>
-    <td>{{bet.result.awayTeamScore}}</td>
+    <td>{{bet.userOfBet.username}}</td>
+    <td>{{bet.resultOfBet.resultType}}</td>
+    <td>{{bet.resultOfBet.homeTeamScore}}</td>
+    <td>{{bet.resultOfBet.awayTeamScore}}</td>
     <td>
       <button type="button" class="delete" title="edit bet"
               (click)="editBet(bet)"><i class="fa fa-edit"></i></button>
@@ -24,11 +24,11 @@
 <div class="container">
   <button type="button" class="btn btn-primary" (click)="addNewBet()">Add new
     bet</button>
-  <form (ngSubmit)="onSubmit(betForm)" #betForm="ngForm" *ngIf="bet" appBetResultValidator>
+  <form (ngSubmit)="onSubmit()" #betForm="ngForm" *ngIf="bet" appBetResultValidator>
   <div class="form-group">
       <label for="name">Username</label>
       <input type="text" class="form-control" id="name" required
-             [(ngModel)]="bet.user.userName" name="name" #name="ngModel">
+             [(ngModel)]="bet.userOfBet.username" name="name" #name="ngModel">
     <div [hidden]="name.valid || name.pristine"
          class="alert alert-danger">
       Username is required
@@ -37,13 +37,13 @@
     <div class="form-group">
       <label for="email">Email</label>
       <input email class="form-control" id="email"
-             [(ngModel)]="bet.user.email" name="email">
+             [(ngModel)]="bet.userOfBet.email" name="email">
     </div>
     <div class="form-group">
       <label for="home-score">Home team goal</label>
       <input type="number" class="form-control" id="home-score"
              required
-             [(ngModel)]="bet.result.homeTeamScore" name="home-score"
+             [(ngModel)]="bet.resultOfBet.homeTeamScore" name="home-score"
              #homeScore="ngModel">
       <div [hidden]="homeScore.valid || homeScore.pristine"
            class="alert alert-danger">
@@ -54,7 +54,7 @@
       <label for="away-score">Away team goal</label>
       <input type="number" class="form-control" id="away-score"
              required
-             [(ngModel)]="bet.result.awayTeamScore" name="away-score"
+             [(ngModel)]="bet.resultOfBet.awayTeamScore" name="away-score"
              #awayScore="ngModel">
       <div [hidden]="awayScore.valid || awayScore.pristine"
            class="alert alert-danger">
@@ -65,7 +65,7 @@
       <label for="result-type">Result</label>
       <select class="form-control" id="result-type"
               required
-              [(ngModel)]="bet.result.resultType" name="result-type"
+              [(ngModel)]="bet.resultOfBet.resultType" name="result-type"
               #resultType="ngModel">
         <option *ngFor="let res of resultTypes"
                 [value]="res">{{res}}</option>
