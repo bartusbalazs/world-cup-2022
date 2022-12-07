@@ -11,6 +11,7 @@ import {MatchService} from "../services/match.service";
 import { MatchDetailComponent } from './components/match-detail/match-detail.component';
 import { BetsComponent } from './components/bets/bets.component';
 import {BetResultValidatorDirective} from "./components/bets/validator/bet-result-validator.directive";
+import {LocalTimePipe} from "../pipes/local-time.pipe";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {BetResultValidatorDirective} from "./components/bets/validator/bet-resul
     TournamentGroupWrapperComponent,
     MatchDetailComponent,
     BetsComponent,
-    BetResultValidatorDirective
+    BetResultValidatorDirective,
+    LocalTimePipe
   ],
   imports: [
     FormsModule,

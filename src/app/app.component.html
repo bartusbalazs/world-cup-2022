@@ -2,6 +2,8 @@
 <nav>
   <a class="nav-menu-link" routerLink="/groups">Groups</a>
   <a class="nav-menu-link" routerLink="/dashboard">Dashboard</a>
+  <button *ngIf="authService.isLoggedIn" class="nav-menu-link"
+          (click)="authService.logout()">Logout</button>
 </nav>
 
 

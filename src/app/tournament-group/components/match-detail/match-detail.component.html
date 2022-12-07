@@ -8,7 +8,7 @@
       <div class="team-block team-name-end">{{match.homeTeam.name | uppercase}}</div>
       <div class="team-block"><img class="flag" [src]="match.homeTeam.flagPath"></div>
     </div>
-    <div class="match-det-date">{{match.startTime}}</div>
+    <div class="match-det-date">{{match.startTime}} - Localtime:{{match.startTime | localTime}}</div>
     <div class="match-element-div">
       <div class="team-block"><img class="flag" [src]="match.awayTeam.flagPath"></div>
       <div class="team-block team-name-start">{{match.awayTeam.name | uppercase}}</div>

@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormDemoComponent } from './reactive-form-demo/reactive-form-demo.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormDemoComponent } from './reactive-form-demo/reactive-form-de
     TeamButtonDirective,
     MessagesComponent,
     PageNotFoundComponent,
-    ReactiveFormDemoComponent
+    ReactiveFormDemoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

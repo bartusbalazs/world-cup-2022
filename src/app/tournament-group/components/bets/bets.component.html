@@ -7,7 +7,7 @@
     <th>Away score</th>
     <th></th>
   </tr>
-  <tr *ngFor="let bet of getBets()">
+  <tr *ngFor="let bet of bets">
     <td>{{bet.userOfBet.username}}</td>
     <td>{{bet.resultOfBet.resultType}}</td>
     <td>{{bet.resultOfBet.homeTeamScore}}</td>
